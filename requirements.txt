@@ -1,0 +1,8 @@
+Flask
+beautifulsoup4
+requests
+PyPDF2
+pytesseract
+pdf2image
+Pillow
+sqlite3

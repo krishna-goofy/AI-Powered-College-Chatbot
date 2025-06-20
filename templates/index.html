@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+
+<script>
+
+
+
+function showWelcomeMessage() {
+    const chatBox = document.getElementById('chat-box');
+    
+    // Create a new div element for the welcome message
+    const welcomeMessage = document.createElement('div');
+    welcomeMessage.className = 'message-container bot-message';
+    const profileImg = document.createElement('img');
+    profileImg.src = '/static/images/bot.png';  // Path to bot image
+    profileImg.alt = 'Bot';
+    profileImg.className = 'profile-bubble';
+    const botLabel = document.createElement('strong');
+    botLabel.className = 'bot-label';
+    botLabel.textContent = 'MSI: ';
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message-content';
+    messageDiv.innerHTML = 'Welcome to MSI Chat Assistance';
+    
+    // Append the elements to the welcome message div
+    welcomeMessage.appendChild(profileImg);  // Profile image first
+    welcomeMessage.appendChild(botLabel);    // "Bot:" label
+    welcomeMessage.appendChild(messageDiv);  // Bot message content
+
+    // Append the welcome message to the chat box
+    chatBox.appendChild(welcomeMessage);
+}
+
+
+    // Trigger the function when the page loads
+    window.onload = function() {
+        showWelcomeMessage();
+    };
+</script>
+
+
+</head>
+<body>
+<div id="overlay" class="hidden"></div>
+
+    <div class="chat-container">
+        <header>
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" style="width:50px;height:50px;">
+            <h1>AskMsi</h1>
+<h5>Affiliated to GGSIP University & NAAC 'A' grade accredited.
+Rated as Category 'A+' by SFRC & 'A' by JAC Govt. of NCT of Delhi
+Approved by BCI & AICTE And Recognised U/s 2(f) of UGC Act</h5>
+        </header>
+
+        <div class="chat-box" id="chat-box">
+
+            <div id="loading-container" class="hidden">
+                <div class="loading-animation"></div>
+                <p>Loading...</p>
+            </div>
+        </div>
+
+
+
+        <!-- Dynamic question bubbles -->
+        <div class="question-bubbles" id="question-bubbles">
+            <!-- Bubbles will be dynamically inserted here -->
+        </div>
+
+        <div class="input-container">
+            <textarea id="question-input" placeholder="Type your question here..."></textarea>
+            <button id="send-btn" class="primary-btn">Send</button>
+        </div>
+    </div>
+</div>
+    <!-- Contact form modal -->
+
+<div id="contact-form" class="hidden">
+    <form id="contact-form-content" onsubmit="sendContactForm(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="phone">Phone:</label>
+        <input type="number" id="phone" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" required></textarea>
+
+        <button type="submit" class="question-btn-yan">Send</button>
+        <button type="button" class="question-btn-yan" onclick="hideContactForm()">Cancel</button>
+    </form>
+</div>
+
+
+
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
