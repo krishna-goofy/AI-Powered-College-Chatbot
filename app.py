@@ -45,7 +45,7 @@ def check_and_scrape_initial_data():
         print("Initial scraping completed!")
 
 # Gemini API configuration
-genai.configure(api_key="AIzaSyCDo597iianSU8muPOlF_fKomZaFJm1vhk")  # Replace with your Gemini API key
+genai.configure(api_key="your_key")  # Replace with your Gemini API key
 
 # Gemini API function using google.generativeai
 def ask_gemini(question, db_content):
